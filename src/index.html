@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Choose your victim</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -14,16 +14,39 @@
   </head>
   <body>
     <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+      <h1 class="mt-5">Choose your victim</h1>
+      <div class="container">
+        <img src="./rigo-baby.jpg" class="img" id="myImg" />
+      </div>
+
+      <div class="container">
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm"
+          onclick="newcard()"
+        >
+          New One !
+        </button>
       </div>
     </div>
+
+    <script>
+      function newcard() {
+        console.log("newcard");
+
+        let suspect = [
+          "https://deadline.com/wp-content/uploads/2018/11/miss-scarlet.jpg",
+          "https://i.pinimg.com/originals/57/b4/88/57b488b62e595bc5664ee819867ff085.jpg",
+          "https://i.ebayimg.com/images/g/6tYAAOSw6-5d0qB5/s-l400.jpg"
+        ];
+
+        function getRndInteger(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        document.getElementById("myImg").src =
+          suspect[getRndInteger(0, suspect.length)];
+      }
+    </script>
   </body>
 </html>
